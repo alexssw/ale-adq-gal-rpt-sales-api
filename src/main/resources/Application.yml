@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ale-adq-gal-rpt-sales-api
+
+spark:
+  application:
+    name: ale-adq-gal-rpt-sales-api
+  master: local[2]
+---
+spring:
+  profiles: local
+  devtools:
+    restart:
+      enable: true
+---
+spring:
+  profiles: dev
+  devtools:
+    restart:
+      enable: true
+---
+spring:
+  profiles: hml
+  devtools:
+    restart:
+      enable: true
+---
+spring:
+  profiles: prd
+  devtools:
+    restart:
+      enable: true

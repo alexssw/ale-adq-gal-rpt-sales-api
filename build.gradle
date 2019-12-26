@@ -1,0 +1,62 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'idea'
+}
+
+group = 'ale-adq-gal-rpt-sales-api'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+configurations.all {
+    resolutionStrategy.force 'com.fasterxml.jackson.core:jackson-databind:2.6.5'
+    exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+}
+
+dependencies {
+
+    compileOnly 'org.projectlombok:lombok:1.18.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+
+    compile('com.oracle:ojdbc8:12.2.0.1')
+
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    compile group: 'org.apache.spark', name: 'spark-core_2.12', version: '2.4.4'
+    compile group: 'org.apache.spark', name: 'spark-sql_2.12', version: '2.4.4'
+    compile group: 'org.apache.spark', name: 'spark-mllib_2.12', version: '2.4.4'
+    compile group: 'org.apache.spark', name: 'spark-streaming_2.12', version: '2.4.4'
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.8'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.8'
+
+    implementation platform('software.amazon.awssdk:bom:2.10.37')
+    //compile group: 'software.amazon.awssdk', name: 'bom', version: '2.10.37', ext: pom
+
+
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.2.2.RELEASE'
+
+    testCompile group: 'org.mockito', name: 'mockito-junit-jupiter', version: '2.23.4'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.23.4'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.5.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
+}
+
+test {
+    useJUnitPlatform()
+}
