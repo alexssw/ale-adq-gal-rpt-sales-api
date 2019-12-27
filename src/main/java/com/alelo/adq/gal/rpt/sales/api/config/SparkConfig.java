@@ -4,6 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -14,10 +15,10 @@ public class SparkConfig {
     @Autowired
     private Environment env;
 
-    //@Value("${spark.application.name}")
+    @Value("${spark.application.name}")
     private String applicationName = "ale-adq-gal-rpt-sales-api";
 
-    //@Value("${spark.master}")
+    @Value("${spark.master}")
     private String masterUri = "local[2]";
 
     @Bean

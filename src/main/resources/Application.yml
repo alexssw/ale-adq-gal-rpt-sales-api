@@ -4,32 +4,135 @@ server:
 spring:
   application:
     name: ale-adq-gal-rpt-sales-api
-
-spark:
-  application:
-    name: ale-adq-gal-rpt-sales-api
-  master: local[2]
 ---
 spring:
   profiles: local
   devtools:
     restart:
       enable: true
+
+spark:
+  application:
+    name: ale-adq-gal-rpt-sales-api
+  master: local[2]
+
+sales-report:
+  bucket: ale-adq-gal-rpt-sales-api-my
+  filename: salesReport
+  database:
+    url: xxxx
+    driver: yyyy
+    user: uuuu
+    password: pppppp
+
+cloud:
+  aws:
+    credentials:
+      accessKey: AKIAWKUPFFLNYLO3NLMW
+      secretKey: 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
+  region:
+    static: us-east-1
+    services:
+      s3:
+        bucket: ale-adq-gal-rpt-sales-api-my
+        region: us-east-1
 ---
 spring:
   profiles: dev
   devtools:
     restart:
       enable: true
+
+spark:
+  application:
+    name: ale-adq-gal-rpt-sales-api
+  master: local[2]
+
+sales-report:
+  bucket: ale-adq-gal-rpt-sales-api-dev
+  filename: salesReport
+  database:
+    url: xxxx
+    driver: yyyy
+    user: uuuu
+    password: pppppp
+
+cloud:
+  aws:
+    credentials:
+      accessKey:
+      secretKey:
+  region:
+    static: us-east-1
+    services:
+      s3:
+        bucket: ale-adq-gal-rpt-sales-api-dev
+        region:
+
 ---
 spring:
   profiles: hml
   devtools:
     restart:
       enable: true
+
+spark:
+  application:
+    name: ale-adq-gal-rpt-sales-api
+  master: local[2]
+
+sales-report:
+  bucket: ale-adq-gal-rpt-sales-api-hml
+  region:
+  filename: salesReport
+  database:
+    url: xxxx
+    driver: yyyy
+    user: uuuu
+    password: pppppp
+
+cloud:
+  aws:
+    credentials:
+      accessKey:
+      secretKey:
+  region:
+    static: us-east-1
+    services:
+      s3:
+        bucket: ale-adq-gal-rpt-sales-api-hml
+        region:
+
 ---
 spring:
   profiles: prd
   devtools:
     restart:
       enable: true
+
+spark:
+  application:
+    name: ale-adq-gal-rpt-sales-api
+  master: local[2]
+
+sales-report:
+  bucket: ale-adq-gal-rpt-sales-api-prd
+  region:
+  filename: salesReport
+  database:
+    url: xxxx
+    driver: yyyy
+    user: uuuu
+    password: pppppp
+
+cloud:
+  aws:
+    credentials:
+      accessKey:
+      secretKey:
+  region:
+    static: us-east-1
+    services:
+      s3:
+        bucket: ale-adq-gal-rpt-sales-api-prd
+        region:

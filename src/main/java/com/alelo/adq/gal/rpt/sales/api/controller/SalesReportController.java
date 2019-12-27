@@ -1,6 +1,6 @@
 package com.alelo.adq.gal.rpt.sales.api.controller;
 
-import com.alelo.adq.gal.rpt.sales.api.model.SalesReportDto;
+import com.alelo.adq.gal.rpt.sales.api.model.dto.SalesReportDto;
 import com.alelo.adq.gal.rpt.sales.api.service.SalesReportService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

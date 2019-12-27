@@ -1,4 +1,4 @@
-package com.alelo.adq.gal.rpt.sales.api.model;
+package com.alelo.adq.gal.rpt.sales.api.model.dto;
 
 
 import lombok.*;

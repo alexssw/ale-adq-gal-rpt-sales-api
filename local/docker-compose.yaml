@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  db:
+    image:  mariadb:latest
+    restart:  always
+    container_name: sales-mariadb
+    environment:
+      MYSQL_DATABASE: salesdb
+      MYSQL_USER: salesusr
+      MYSQL_PASSWORD: salespwd
+      MYSQL_ROOT_PASSWORD: salesroot
+    ports:
+    - "3306:3306"
+    expose:
+     - "3306"
+    volumes:
+      - cma-db:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/conf.d/custom.cnf
+    network_mode: host
+
+volumes:
+  cma-db:
